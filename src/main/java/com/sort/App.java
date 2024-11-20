@@ -18,7 +18,9 @@ public class App
         for(int i = 0; i<n; i++){
             arr.add(i, rand.nextInt(0,10000));
         }
-        
+
+
+
         Quicksort.quickSort(arr, n);
     }
 }
