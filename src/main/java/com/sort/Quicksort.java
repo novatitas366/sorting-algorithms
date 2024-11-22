@@ -38,9 +38,6 @@ public class Quicksort {
         temp = arr.get(end);
         arr.set(end, arr.get(i));
         arr.set(i, temp);
-        
-
-        
         return i;
     }
     public static void QuickSortWithTime(ArrayList <Integer> arr, String sort){
