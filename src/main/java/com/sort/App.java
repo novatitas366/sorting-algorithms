@@ -5,11 +5,13 @@ import java.util.Random;
 
 
 
+
 public class App 
 {
     
     public static void main( String[] args )
     {
+        
         int n = 20000000;
         ArrayList <Integer> arr =new ArrayList<>();
         Random rand = new Random();
@@ -17,7 +19,7 @@ public class App
         for(int i = 0; i<n; i++){
             arr.add(i, rand.nextInt(n+5));
         }
-        Quicksort.QuickSortWithTime(arr, "Quicksort");
-
+        System.out.println("Done");
+        Quicksort.QuickSortWithTime(arr);
     }
 }

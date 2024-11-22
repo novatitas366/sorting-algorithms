@@ -7,10 +7,11 @@ import java.util.ArrayList;
 public class Quicksort {
 
     private final static AtomicInteger activeTaskCount = new AtomicInteger(0);
-
+    static ExecutorService executor = Executors.newThreadPerTaskExecutor(Thread.ofVirtual().factory());
     public static void quickSort(ArrayList<Integer> arr, int start, int end){
-        ExecutorService executor = Executors.newFixedThreadPool(2);
+        
         if(start>=end){
+            executor.shutdown();
             return;
         }
         int pivot = m_findPivotAndSort(arr, start, end);
@@ -59,11 +60,18 @@ public class Quicksort {
         arr.set(i, temp);
         return i;
     }
-    public static void QuickSortWithTime(ArrayList <Integer> arr, String sort){
+    public static void QuickSortWithTime(ArrayList <Integer> arr){
+            ExecutorService executor = Executors.newFixedThreadPool(4);
             double startTime = System.currentTimeMillis();
+            activeTaskCount.set(1);
             Quicksort.quickSort(arr, 0, arr.size()-1);
+            executor.shutdown();
+            while(!executor.isShutdown()){
+
+            }
             double stopTime = System.currentTimeMillis();
             System.out.println("The Quicksort function sorted the array in "+(stopTime-startTime)/1000+" s.");
+            
         
     }
 }
