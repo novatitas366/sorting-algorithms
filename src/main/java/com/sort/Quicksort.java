@@ -29,6 +29,9 @@ public class Quicksort {
         for(int j = start; j<end; j++){
             if(arr.get(j) <= arr.get(end)){
                 i++;
+                if(i==j){
+                    continue;
+                }
                 temp = arr.get(j);
                 arr.set(j, arr.get(i));
                 arr.set(i, temp);
