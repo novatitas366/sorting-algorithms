@@ -43,4 +43,11 @@ public class Quicksort {
         
         return i;
     }
+    public static void QuickSortWithTime(ArrayList <Integer> arr, String sort){
+            double startTime = System.currentTimeMillis();
+            Quicksort.quickSort(arr, 0, arr.size()-1);
+            double stopTime = System.currentTimeMillis();
+            System.out.println("The Quicksort function sorted the array in "+(stopTime-startTime)/1000+" s.");
+        
+    }
 }
