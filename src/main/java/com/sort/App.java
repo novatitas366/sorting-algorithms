@@ -18,7 +18,7 @@ public class App
             arr.add(i, rand.nextInt(n+5));
         }
         //System.out.println(arr);
-        Quicksort.QuickSortWithTime(arr, "Quicksort");
+        Quicksort.QuickSortWithTime(arr);
         //System.out.println(arr);
     }
 }

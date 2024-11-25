@@ -43,7 +43,7 @@ public class Quicksort {
         arr.set(i, temp);
         return i;
     }
-    public static void QuickSortWithTime(ArrayList <Integer> arr, String sort){
+    public static void QuickSortWithTime(ArrayList <Integer> arr){
             double startTime = System.currentTimeMillis();
             Quicksort.quickSort(arr, 0, arr.size()-1);
             double stopTime = System.currentTimeMillis();
