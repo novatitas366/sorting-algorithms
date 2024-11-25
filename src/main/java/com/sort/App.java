@@ -10,7 +10,7 @@ public class App
     
     public static void main( String[] args )
     {
-        int n = 20000000;
+        int n = 2000000;
         ArrayList <Integer> arr =new ArrayList<>();
         Random rand = new Random();
         
@@ -19,6 +19,7 @@ public class App
         }
         //System.out.println(arr);
         Quicksort.QuickSortWithTime(arr);
+        Shell.ShellSortWithTime(arr);
         //System.out.println(arr);
     }
 }
