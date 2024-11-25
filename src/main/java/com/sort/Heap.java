@@ -64,10 +64,15 @@ public class Heap {
         System.out.println();
     }
     public static void HeapSortWithTime(ArrayList<Integer> arr) {
-        long startTime = System.nanoTime();
+        /*long startTime = System.nanoTime();
         heapSort(arr);
         long endTime = System.nanoTime();
         double timeSpent = (endTime - startTime) / 1_000_000_000.0;
-        System.out.printf("The Heapsort function sorted the array in %.6f seconds.%n", timeSpent);
+        System.out.printf("The Heapsort function sorted the array in %.6f seconds.%n", timeSpent);*/
+
+        double startTime = System.currentTimeMillis();
+        Heap.heapSort(arr);
+        double stopTime = System.currentTimeMillis();
+        System.out.println("The Heapsort function sorted the array in " + (stopTime - startTime) / 1000 + " s.");
     }
 }
