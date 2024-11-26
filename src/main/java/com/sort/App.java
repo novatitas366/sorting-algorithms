@@ -12,7 +12,7 @@ import java.io.FileNotFoundException;
 public class App 
 {
     public static void createFileWithNames(){
-        int n = 20;
+        int n = 2000000;
         ArrayList <Integer> arr =new ArrayList<>();
         Random rand = new Random();
         
@@ -49,11 +49,11 @@ public class App
         }
         
         
-        System.out.println(arr);
-        //Quicksort.QuickSortWithTime(arr);
+        
+        
         Shell.ShellSortWithTime(arr);
-        //System.out.println(arr);
-        //Heap.HeapSortWithTime(arr);
-        System.out.println(arr);
+        Heap.HeapSortWithTime(arr);
+        Quicksort.QuickSortWithTime(arr);
+        
     }
 }
