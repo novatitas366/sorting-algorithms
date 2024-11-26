@@ -1,6 +1,7 @@
 package com.sort;
 import java.util.*;
 
+
 public class Shell {
     public static void shellSort(Integer[] arr) {
         int n = arr.length;
@@ -30,6 +31,8 @@ public class Shell {
         Integer[] array = arr.toArray(new Integer[0]);
         double startTime = System.currentTimeMillis();
         Shell.shellSort(array);
+        arr.clear();
+        arr.addAll(Arrays.asList(array));
         double stopTime = System.currentTimeMillis();
         System.out.println("The ShellSort function sorted the array in " + (stopTime - startTime) / 1000 + " s.");
     }
