@@ -23,32 +23,26 @@ public class Heap {
 
     public static void heapify(ArrayList<Integer> arr, int size, int i) {
 
-        int max = i;
+        int largest = i;
 
         int left = 2 * i + 1;
 
         int right = 2 * i + 2;
 
         if (left < size && arr.get(left) > arr.get(i)) {
-
-            max = left;
-            int temp = arr.get(i);
-            arr.set(i, arr.get(max));
-            arr.set(max, temp);
-
-            heapify(arr, size, max);
-
+            largest = left;
         }
 
         if (right < size && arr.get(right) > arr.get(i)) {
+            largest = right;
+        }
 
-            max = right;
+        if (largest != i) {
             int temp = arr.get(i);
-            arr.set(i, arr.get(max));
-            arr.set(max, temp);
+            arr.set(i, arr.get(largest));
+            arr.set(largest, temp);
 
-            heapify(arr, size, max);
-
+            heapify(arr, size, largest);
         }
     }
     public static void printArray(ArrayList<Integer> arr) {

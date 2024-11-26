@@ -10,7 +10,7 @@ public class App
     
     public static void main( String[] args )
     {
-        int n = 1000000;
+        int n = 100000000;
         ArrayList <Integer> arr =new ArrayList<>();
         Random rand = new Random();
         
