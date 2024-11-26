@@ -29,11 +29,11 @@ public class Heap {
 
         int right = 2 * i + 2;
 
-        if (left < size && arr.get(left) > arr.get(i)) {
+        if (left < size && arr.get(left) > arr.get(largest)) {
             largest = left;
         }
 
-        if (right < size && arr.get(right) > arr.get(i)) {
+        if (right < size && arr.get(right) > arr.get(largest)) {
             largest = right;
         }
 
