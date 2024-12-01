@@ -27,7 +27,7 @@ public class Shell {
         arr[j] = temp;
     }
 
-    public static void ShellSortWithTime(ArrayList<Integer> arr){
+    public static double ShellSortWithTime(ArrayList<Integer> arr){
         Integer[] array = arr.toArray(new Integer[0]);
         double startTime = System.currentTimeMillis();
         Shell.shellSort(array);
@@ -35,5 +35,6 @@ public class Shell {
         arr.addAll(Arrays.asList(array));
         double stopTime = System.currentTimeMillis();
         System.out.println("The ShellSort function sorted the array in " + (stopTime - startTime) / 1000 + " s.");
+        return stopTime - startTime;
     }
 }

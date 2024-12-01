@@ -57,7 +57,7 @@ public class Heap {
         }
         System.out.println();
     }
-    public static void HeapSortWithTime(ArrayList<Integer> arr) {
+    public static double HeapSortWithTime(ArrayList<Integer> arr) {
         /*long startTime = System.nanoTime();
         heapSort(arr);
         long endTime = System.nanoTime();
@@ -68,5 +68,6 @@ public class Heap {
         Heap.heapSort(arr);
         double stopTime = System.currentTimeMillis();
         System.out.println("The Heapsort function sorted the array in " + (stopTime - startTime) / 1000 + " s.");
+        return stopTime - startTime;
     }
 }
