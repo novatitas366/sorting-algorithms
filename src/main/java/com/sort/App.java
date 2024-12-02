@@ -71,13 +71,14 @@ public class App
             double QuicksortAvg=0;
             double HeapAvg=0;
             double ShellAvg=0;
-
+            sortArrayNotComplete(arr);
             
             for(int j = 0; j<5; j++){
                 ShellAvg+=Shell.ShellSortWithTime(arr);
                 HeapAvg+=Heap.HeapSortWithTime(arr);
                 QuicksortAvg+=Quicksort.QuickSortWithTime(arr);
                 System.out.println();
+                sortArrayNotComplete(arr);
             }
             ShellAvg = (ShellAvg/5)/1000;
             HeapAvg = (HeapAvg/5)/1000;
