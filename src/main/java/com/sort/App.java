@@ -46,6 +46,7 @@ public class App
                 heapTimeVid += Heap.HeapSortWithTime(arr);
                 quickTimeVid += Quicksort.QuickSortWithTime(arr);
                 System.out.println();
+                createFileWithNumbers();
                 fileToArray(arr);
             }
             shellTimeVid = (shellTimeVid / 6.0) / 1000;
@@ -61,7 +62,37 @@ public class App
         }
     }
 
+    public static void almostSortedArraySort(){
+        for(int i = 0; i<5; i++){
+            
+            ArrayList<Integer> arr = new ArrayList<>();
+            createFileWithNumbers();
+            fileToArray(arr);
+            double QuicksortAvg=0;
+            double HeapAvg=0;
+            double ShellAvg=0;
 
+            
+            for(int j = 0; j<5; j++){
+                ShellAvg+=Shell.ShellSortWithTime(arr);
+                HeapAvg+=Heap.HeapSortWithTime(arr);
+                QuicksortAvg+=Quicksort.QuickSortWithTime(arr);
+                System.out.println();
+            }
+            ShellAvg = (ShellAvg/5)/1000;
+            HeapAvg = (HeapAvg/5)/1000;
+            QuicksortAvg= (QuicksortAvg/5)/1000;
+            ShellAvg = new BigDecimal(ShellAvg).setScale(3, RoundingMode.HALF_UP).doubleValue();
+            HeapAvg = new BigDecimal(HeapAvg).setScale(3, RoundingMode.HALF_UP).doubleValue();
+            QuicksortAvg = new BigDecimal(QuicksortAvg).setScale(3, RoundingMode.HALF_UP).doubleValue();
+            System.out.println("Shellsort average Time: "+ShellAvg+" s.");
+            System.out.println("Heapsort average Time: "+HeapAvg+" s.");
+            System.out.println("Quicksort average Time: "+QuicksortAvg+" s.");
+            System.out.println("----------------------------------------------------------------");
+            System.out.println();
+    }
+        
+    }
     public static void fileToArray(ArrayList <Integer> arr){
         arr.clear();
         File file = new File("arr.txt");
@@ -75,14 +106,21 @@ public class App
             e.printStackTrace();
         }
     }
+
+    public static void sortArrayNotComplete(ArrayList<Integer> arr){
+        Quicksort.quickSort(arr, 0, arr.size()-1);
+        for(int j = 0; j < 10; j++){
+            Random random = new Random();
+            arr.add(random.nextInt());
+        }
+    }
     public static void main( String[] args )
     {
         
-        fiveArrayTest();
+        //fiveArrayTest();
         
         
-        
-        
+        almostSortedArraySort();        
         
         
         
