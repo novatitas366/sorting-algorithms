@@ -36,6 +36,8 @@ public class App
     public static void fiveArrayTest(){
         ArrayList <Integer> arr = new ArrayList<>();
         for(int i = 0; i<5; i++){
+            System.out.println("Aibė (" + (i+1) + ")");
+            System.out.println();
             double shellTimeVid=0;
             double heapTimeVid=0;
             double quickTimeVid=0;
