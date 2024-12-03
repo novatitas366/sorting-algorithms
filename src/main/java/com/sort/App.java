@@ -14,7 +14,7 @@ import java.io.FileNotFoundException;
 public class App 
 {
     public static void createFileWithNumbers(){
-        int n = 2000000;
+        int n = 25000000;
         ArrayList <Integer> arr =new ArrayList<>();
         Random rand = new Random();
         
@@ -34,8 +34,14 @@ public class App
     }
 
     public static void fiveArrayTest(){
+
         ArrayList <Integer> arr = new ArrayList<>();
+        double shellTimeVidAll=0;
+        double heapTimeVidAll=0;
+        double quickTimeVidAll=0;
+
         for(int i = 0; i<5; i++){
+            System.out.println("Duomenų kiekis (skaičių aibė): 25000000 (25 milijonų)");
             System.out.println("Aibė (" + (i+1) + ")");
             System.out.println();
             double shellTimeVid=0;
@@ -53,13 +59,38 @@ public class App
             shellTimeVid = (shellTimeVid / 6.0) / 1000;
             heapTimeVid = (heapTimeVid / 6.0) / 1000;
             quickTimeVid = (quickTimeVid / 6.0) / 1000;
+
+            shellTimeVidAll += shellTimeVid;
+            heapTimeVidAll += heapTimeVid;
+            quickTimeVidAll += quickTimeVid;
+
             shellTimeVid = new BigDecimal(shellTimeVid).setScale(3, RoundingMode.HALF_UP).doubleValue();
             heapTimeVid = new BigDecimal(heapTimeVid).setScale(3, RoundingMode.HALF_UP).doubleValue();
             quickTimeVid = new BigDecimal(quickTimeVid).setScale(3, RoundingMode.HALF_UP).doubleValue();
+
             System.out.println("Shellsort average Time: "+shellTimeVid+" s.");
             System.out.println("Heapsort average Time: "+heapTimeVid+" s.");
             System.out.println("Quicksort average Time: "+quickTimeVid+" s.");
             System.out.println("-----------------------------------------------------------------");
+
+            if (i == 4) {
+
+                shellTimeVidAll = shellTimeVidAll / 5.0;
+                heapTimeVidAll = heapTimeVidAll / 5.0;
+                quickTimeVidAll = quickTimeVidAll / 5.0;
+
+                shellTimeVidAll = new BigDecimal(shellTimeVidAll).setScale(3, RoundingMode.HALF_UP).doubleValue();
+                heapTimeVidAll = new BigDecimal(heapTimeVidAll).setScale(3, RoundingMode.HALF_UP).doubleValue();
+                quickTimeVidAll = new BigDecimal(quickTimeVidAll).setScale(3, RoundingMode.HALF_UP).doubleValue();
+
+                System.out.println();
+                System.out.println("-----------------------------------------------------------------");
+                System.out.println("Shellsort full average Time: "+shellTimeVidAll+" s.");
+                System.out.println("Heapsort full average Time: "+heapTimeVidAll+" s.");
+                System.out.println("Quicksort full average Time: "+quickTimeVidAll+" s.");
+                System.out.println("-----------------------------------------------------------------");
+
+            }
         }
     }
 
