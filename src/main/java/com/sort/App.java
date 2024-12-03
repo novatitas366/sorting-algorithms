@@ -46,7 +46,6 @@ public class App
                 heapTimeVid += Heap.HeapSortWithTime(arr);
                 quickTimeVid += Quicksort.QuickSortWithTime(arr);
                 System.out.println();
-                createFileWithNumbers();
                 fileToArray(arr);
             }
             shellTimeVid = (shellTimeVid / 6.0) / 1000;
@@ -109,6 +108,7 @@ public class App
     }
 
     public static void sortArrayNotComplete(ArrayList<Integer> arr){
+        fileToArray(arr);
         Quicksort.quickSort(arr, 0, arr.size()-1);
         for(int j = 0; j < 10; j++){
             Random random = new Random();
