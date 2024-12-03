@@ -72,16 +72,16 @@ public class App
             double ShellAvg=0;
             sortArrayNotComplete(arr);
             
-            for(int j = 0; j<5; j++){
+            for(int j = 0; j<6; j++){
                 ShellAvg+=Shell.ShellSortWithTime(arr);
                 HeapAvg+=Heap.HeapSortWithTime(arr);
                 QuicksortAvg+=Quicksort.QuickSortWithTime(arr);
                 System.out.println();
                 sortArrayNotComplete(arr);
             }
-            ShellAvg = (ShellAvg/5)/1000;
-            HeapAvg = (HeapAvg/5)/1000;
-            QuicksortAvg= (QuicksortAvg/5)/1000;
+            ShellAvg = (ShellAvg/6)/1000;
+            HeapAvg = (HeapAvg/6)/1000;
+            QuicksortAvg= (QuicksortAvg/6)/1000;
             ShellAvg = new BigDecimal(ShellAvg).setScale(3, RoundingMode.HALF_UP).doubleValue();
             HeapAvg = new BigDecimal(HeapAvg).setScale(3, RoundingMode.HALF_UP).doubleValue();
             QuicksortAvg = new BigDecimal(QuicksortAvg).setScale(3, RoundingMode.HALF_UP).doubleValue();
@@ -118,12 +118,9 @@ public class App
     public static void main( String[] args )
     {
         
-        //fiveArrayTest();
+        fiveArrayTest();
         
-        
-        almostSortedArraySort();        
-        
-        
+        //almostSortedArraySort();        
         
     }
 }
