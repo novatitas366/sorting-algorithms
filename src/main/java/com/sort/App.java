@@ -14,7 +14,7 @@ import java.io.FileNotFoundException;
 public class App 
 {
     public static void createFileWithNumbers(){
-        int n = 25000000;
+        int n = 32000000;
         ArrayList <Integer> arr =new ArrayList<>();
         Random rand = new Random();
         
@@ -41,7 +41,7 @@ public class App
         double quickTimeVidAll=0;
 
         for(int i = 0; i<5; i++){
-            System.out.println("Duomenų kiekis (skaičių aibė): 25000000 (25 milijonų)");
+            System.out.println("Duomenų kiekis (skaičių aibė): 4000000 (4 milijonai)");
             System.out.println("Aibė (" + (i+1) + ")");
             System.out.println();
             double shellTimeVid=0;
@@ -95,9 +95,14 @@ public class App
     }
 
     public static void almostSortedArraySort(){
+        ArrayList<Integer> arr = new ArrayList<>();
+        double shellTimeVidAll=0;
+        double heapTimeVidAll=0;
+        double quickTimeVidAll=0;
         for(int i = 0; i<5; i++){
-            
-            ArrayList<Integer> arr = new ArrayList<>();
+            System.out.println("Duomenų kiekis (skaičių aibė): 32000000 (32 milijonų)");
+            System.out.println("Aibė (" + (i+1) + ")");
+            System.out.println();
             createFileWithNumbers();
             fileToArray(arr);
             double QuicksortAvg=0;
@@ -112,9 +117,14 @@ public class App
                 System.out.println();
                 sortArrayNotComplete(arr);
             }
-            ShellAvg = (ShellAvg/6)/1000;
-            HeapAvg = (HeapAvg/6)/1000;
-            QuicksortAvg= (QuicksortAvg/6)/1000;
+            ShellAvg = (ShellAvg/6.0)/1000;
+            HeapAvg = (HeapAvg/6.0)/1000;
+            QuicksortAvg= (QuicksortAvg/6.0)/1000;
+
+            shellTimeVidAll += ShellAvg;
+            heapTimeVidAll += HeapAvg;
+            quickTimeVidAll += QuicksortAvg;
+
             ShellAvg = new BigDecimal(ShellAvg).setScale(3, RoundingMode.HALF_UP).doubleValue();
             HeapAvg = new BigDecimal(HeapAvg).setScale(3, RoundingMode.HALF_UP).doubleValue();
             QuicksortAvg = new BigDecimal(QuicksortAvg).setScale(3, RoundingMode.HALF_UP).doubleValue();
@@ -123,6 +133,25 @@ public class App
             System.out.println("Quicksort average Time: "+QuicksortAvg+" s.");
             System.out.println("----------------------------------------------------------------");
             System.out.println();
+
+            if (i == 4) {
+
+                shellTimeVidAll = shellTimeVidAll / 5.0;
+                heapTimeVidAll = heapTimeVidAll / 5.0;
+                quickTimeVidAll = quickTimeVidAll / 5.0;
+
+                shellTimeVidAll = new BigDecimal(shellTimeVidAll).setScale(3, RoundingMode.HALF_UP).doubleValue();
+                heapTimeVidAll = new BigDecimal(heapTimeVidAll).setScale(3, RoundingMode.HALF_UP).doubleValue();
+                quickTimeVidAll = new BigDecimal(quickTimeVidAll).setScale(3, RoundingMode.HALF_UP).doubleValue();
+
+                System.out.println();
+                System.out.println("-----------------------------------------------------------------");
+                System.out.println("Shellsort full average Time: "+shellTimeVidAll+" s.");
+                System.out.println("Heapsort full average Time: "+heapTimeVidAll+" s.");
+                System.out.println("Quicksort full average Time: "+quickTimeVidAll+" s.");
+                System.out.println("-----------------------------------------------------------------");
+
+            }
     }
         
     }
@@ -151,9 +180,9 @@ public class App
     public static void main( String[] args )
     {
         
-        fiveArrayTest();
+        //fiveArrayTest();
         
-        //almostSortedArraySort();        
+        almostSortedArraySort();        
         
     }
 }
